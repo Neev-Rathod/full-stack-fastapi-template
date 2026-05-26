@@ -96,7 +96,7 @@ function Login() {
         errors={errors}
       />
       <RouterLink to="/recover-password" className="main-link">
-        Forgot Password?
+        Forgot pass
       </RouterLink>
       <Button variant="solid" type="submit" loading={isSubmitting} size="md">
         Log In
