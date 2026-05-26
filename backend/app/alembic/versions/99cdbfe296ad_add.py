@@ -1,7 +1,7 @@
 """add
 
 Revision ID: 99cdbfe296ad
-Revises: 6e307d602fec
+Revises: 1a31ce608336
 Create Date: 2026-05-26 14:09:00.187726
 
 """
@@ -12,7 +12,7 @@ import sqlmodel.sql.sqltypes
 
 # revision identifiers, used by Alembic.
 revision = '99cdbfe296ad'
-down_revision = '6e307d602fec'
+down_revision = '1a31ce608336'
 branch_labels = None
 depends_on = None
 
