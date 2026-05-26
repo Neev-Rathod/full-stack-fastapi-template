@@ -524,3 +524,190 @@ export const ValidationErrorSchema = {
     required: ['loc', 'msg', 'type'],
     title: 'ValidationError'
 } as const;
+
+export const WorkflowCreateSchema = {
+    properties: {
+        title: {
+            type: 'string',
+            maxLength: 255,
+            minLength: 1,
+            title: 'Title'
+        },
+        description: {
+            anyOf: [
+                {
+                    type: 'string',
+                    maxLength: 1000
+                },
+                {
+                    type: 'null'
+                }
+            ],
+            title: 'Description'
+        },
+        category: {
+            anyOf: [
+                {
+                    type: 'string',
+                    maxLength: 255
+                },
+                {
+                    type: 'null'
+                }
+            ],
+            title: 'Category'
+        },
+        is_template: {
+            type: 'boolean',
+            title: 'Is Template',
+            default: false
+        },
+        visibility: {
+            type: 'string',
+            maxLength: 50,
+            title: 'Visibility',
+            default: 'private'
+        }
+    },
+    type: 'object',
+    required: ['title'],
+    title: 'WorkflowCreate'
+} as const;
+
+export const WorkflowPublicSchema = {
+    properties: {
+        title: {
+            type: 'string',
+            maxLength: 255,
+            minLength: 1,
+            title: 'Title'
+        },
+        description: {
+            anyOf: [
+                {
+                    type: 'string',
+                    maxLength: 1000
+                },
+                {
+                    type: 'null'
+                }
+            ],
+            title: 'Description'
+        },
+        category: {
+            anyOf: [
+                {
+                    type: 'string',
+                    maxLength: 255
+                },
+                {
+                    type: 'null'
+                }
+            ],
+            title: 'Category'
+        },
+        is_template: {
+            type: 'boolean',
+            title: 'Is Template',
+            default: false
+        },
+        visibility: {
+            type: 'string',
+            maxLength: 50,
+            title: 'Visibility',
+            default: 'private'
+        },
+        id: {
+            type: 'string',
+            format: 'uuid',
+            title: 'Id'
+        },
+        created_by_id: {
+            type: 'string',
+            format: 'uuid',
+            title: 'Created By Id'
+        },
+        created_at: {
+            type: 'string',
+            format: 'date-time',
+            title: 'Created At'
+        }
+    },
+    type: 'object',
+    required: ['title', 'id', 'created_by_id', 'created_at'],
+    title: 'WorkflowPublic'
+} as const;
+
+export const WorkflowUpdateSchema = {
+    properties: {
+        title: {
+            anyOf: [
+                {
+                    type: 'string',
+                    maxLength: 255,
+                    minLength: 1
+                },
+                {
+                    type: 'null'
+                }
+            ],
+            title: 'Title'
+        },
+        description: {
+            anyOf: [
+                {
+                    type: 'string',
+                    maxLength: 1000
+                },
+                {
+                    type: 'null'
+                }
+            ],
+            title: 'Description'
+        },
+        category: {
+            anyOf: [
+                {
+                    type: 'string',
+                    maxLength: 255
+                },
+                {
+                    type: 'null'
+                }
+            ],
+            title: 'Category'
+        },
+        is_template: {
+            type: 'boolean',
+            title: 'Is Template',
+            default: false
+        },
+        visibility: {
+            type: 'string',
+            maxLength: 50,
+            title: 'Visibility',
+            default: 'private'
+        }
+    },
+    type: 'object',
+    title: 'WorkflowUpdate'
+} as const;
+
+export const WorkflowsPublicSchema = {
+    properties: {
+        data: {
+            items: {
+                '$ref': '#/components/schemas/WorkflowPublic'
+            },
+            type: 'array',
+            title: 'Data'
+        },
+        count: {
+            type: 'integer',
+            title: 'Count'
+        }
+    },
+    type: 'object',
+    required: ['data', 'count'],
+    title: 'WorkflowsPublic'
+} as const;

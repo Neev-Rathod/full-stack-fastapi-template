@@ -107,6 +107,38 @@ export type ValidationError = {
     type: string;
 };
 
+export type WorkflowCreate = {
+    title: string;
+    description?: (string | null);
+    category?: (string | null);
+    is_template?: boolean;
+    visibility?: string;
+};
+
+export type WorkflowPublic = {
+    title: string;
+    description?: (string | null);
+    category?: (string | null);
+    is_template?: boolean;
+    visibility?: string;
+    id: string;
+    created_by_id: string;
+    created_at: string;
+};
+
+export type WorkflowsPublic = {
+    data: Array<WorkflowPublic>;
+    count: number;
+};
+
+export type WorkflowUpdate = {
+    title?: (string | null);
+    description?: (string | null);
+    category?: (string | null);
+    is_template?: boolean;
+    visibility?: string;
+};
+
 export type ItemsReadItemsData = {
     limit?: number;
     skip?: number;
@@ -232,3 +264,35 @@ export type UtilsTestEmailData = {
 export type UtilsTestEmailResponse = (Message);
 
 export type UtilsHealthCheckResponse = (boolean);
+
+export type WorkflowsReadWorkflowsData = {
+    limit?: number;
+    skip?: number;
+};
+
+export type WorkflowsReadWorkflowsResponse = (WorkflowsPublic);
+
+export type WorkflowsCreateWorkflowData = {
+    requestBody: WorkflowCreate;
+};
+
+export type WorkflowsCreateWorkflowResponse = (WorkflowPublic);
+
+export type WorkflowsReadWorkflowData = {
+    id: string;
+};
+
+export type WorkflowsReadWorkflowResponse = (WorkflowPublic);
+
+export type WorkflowsUpdateWorkflowData = {
+    id: string;
+    requestBody: WorkflowUpdate;
+};
+
+export type WorkflowsUpdateWorkflowResponse = (WorkflowPublic);
+
+export type WorkflowsDeleteWorkflowData = {
+    id: string;
+};
+
+export type WorkflowsDeleteWorkflowResponse = (unknown);
